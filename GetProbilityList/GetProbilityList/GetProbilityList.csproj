@@ -33,16 +33,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="NPOI">
-      <HintPath>..\..\..\..\..\Downloads\NPOI 2.2.1 binary package\Release\Net40\NPOI.dll</HintPath>
+      <HintPath>F:\迅雷下载\NPOI 2.2.1 binary package\Release\Net40\NPOI.dll</HintPath>
     </Reference>
     <Reference Include="NPOI.OOXML">
-      <HintPath>..\..\..\..\..\Downloads\NPOI 2.2.1 binary package\Release\Net40\NPOI.OOXML.dll</HintPath>
+      <HintPath>F:\迅雷下载\NPOI 2.2.1 binary package\Release\Net40\NPOI.OOXML.dll</HintPath>
     </Reference>
     <Reference Include="NPOI.OpenXml4Net">
-      <HintPath>..\..\..\..\..\Downloads\NPOI 2.2.1 binary package\Release\Net40\NPOI.OpenXml4Net.dll</HintPath>
+      <HintPath>F:\迅雷下载\NPOI 2.2.1 binary package\Release\Net40\NPOI.OpenXml4Net.dll</HintPath>
     </Reference>
     <Reference Include="NPOI.OpenXmlFormats">
-      <HintPath>..\..\..\..\..\Downloads\NPOI 2.2.1 binary package\Release\Net40\NPOI.OpenXmlFormats.dll</HintPath>
+      <HintPath>F:\迅雷下载\NPOI 2.2.1 binary package\Release\Net40\NPOI.OpenXmlFormats.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
