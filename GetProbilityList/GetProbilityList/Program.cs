@@ -51,8 +51,9 @@ namespace GetProbilityList
                 }
 
                 //开始写入
-                Console.WriteLine($"执行到第{i}行");
+                //Console.WriteLine($"执行到第{i}行");
                 sw.WriteLine(DataTableAward.Rows[i]["id说明"]);
+                sw.WriteLine("道具" + "    " +"数量" + "    " +"概率");
                 for (int j = 0; j < NameList.Count; j++)
                 {
                     sw.WriteLine(NameList[j] + "    " + NumberList[j] + "    " + ProbilityList[j]);
@@ -114,8 +115,16 @@ namespace GetProbilityList
             {
                 if (GetData(row, Name2[i], out string str, out int awardId) == 3)
                 {
-                    //记录不显示的row
-                    HideRowList.Add(GetRow(awardId.ToString()));
+                    //记录不显示的row,找不到的话，记录下奖励id
+                    if (GetRow(awardId.ToString()) == 0)
+                    {
+                        Console.WriteLine($"awardId:{awardId}");
+                    }
+                    else
+                    {
+                        HideRowList.Add(GetRow(awardId.ToString()));
+                    }
+                   
                     GetList(GetRow(awardId.ToString()), out List<string> nameList2, out List<string> numberList2,
                         out List<string> probilityList2);
                     nameList.AddRange(nameList2);
@@ -147,15 +156,7 @@ namespace GetProbilityList
         //根据奖励id查找row
         private static int GetRow(string awardId)
         {
-            try
-            {
-                return Convert.ToInt32((from DataRow row in DataTableAward.Rows where row["id"].ToString() == awardId select DataTableAward.Rows.IndexOf(row)).FirstOrDefault());
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message + $"awardId:{awardId}");
-                throw;
-            }
+            return Convert.ToInt32((from DataRow row in DataTableAward.Rows where row["id"].ToString() == awardId select DataTableAward.Rows.IndexOf(row)).FirstOrDefault());
         }
 
         //0为空或0
@@ -174,7 +175,7 @@ namespace GetProbilityList
             if (int.TryParse(data, out num))
             {
                 str = null;
-                return num > 10000 ? 2 : 3;
+                return num > 10000 ? 2 : (num > 0 ? 3 : 0);
             }
             str = data;
             num = 0;
